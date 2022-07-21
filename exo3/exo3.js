@@ -21,21 +21,45 @@ checkBox = document.getElementById('masquer-paroles').addEventListener('click', 
 
 });
 
+
+
 checkBox1 = document.getElementById('masquer-refrains').addEventListener('click', event => {
 
     if (event.target.checked) {
 
-        //alert("Checkbox checked!");
+        $(".contenu").hide();
 
-        $(".refrain").toggle();
+        $(".definition").show();
 
         $('#refrain').contents().last().replaceWith(' Afficher les refrains');
 
+        $(document).ready(function() {
+
+            $(".definition").mouseenter(function() {
+
+                $(".contenu").show(".contenu");
+
+            });
+
+
+
+            $(".definition").mouseleave(function() {
+
+                $(".contenu").hide(".contenu");
+
+            })
+
+        })
+
     }
+
+
 
     else {        
 
-        $(".refrain").show();
+        $(".contenu").show();
+
+        $(".definition").hide();
 
         $('#refrain').contents().last().replaceWith(' Masquer les refrains');
 
